@@ -1,724 +1,469 @@
 <!doctype html>
-<html lang="en" data-theme="souk">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#1a0d05" id="themeMeta">
-<meta name="description" content="MC88 Store - a curated collection of Android apps by MC88.">
-<title>MC88 STORE</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23ff8a1e'/><stop offset='1' stop-color='%23e01f3d'/></linearGradient></defs><rect width='100' height='100' rx='22' fill='%231a0d05'/><path d='M28 72V28l22 22 22-22v44' stroke='url(%23g)' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<meta name="theme-color" content="#0c0c0e" id="themeMeta">
+<meta name="description" content="MC88 Store — free Android apps, built in the open.">
+<title>MC88 Store</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230c0c0e'/><text x='50' y='66' font-family='monospace' font-size='34' font-weight='700' text-anchor='middle' fill='%23e8912d'>M88</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ============================================================
-   THEMES
-   These 8 palettes come from photos I keep coming back to.
-   One theme per photo. Names are shorthand for the mood.
-   ============================================================ */
-
-/* Souk - warm orange wall, deep shadow, a kid on a bike */
-:root,:root[data-theme="souk"]{
-  --bg:#1a0d05;--bg-2:#251208;
-  --surface:rgba(60,30,12,.55);--surface-hi:rgba(85,45,20,.7);
-  --border:rgba(255,215,170,.10);--border-hi:rgba(255,215,170,.20);
-  --text:#f5e0c8;--text-dim:#a87850;--text-faint:#5a3a20;
-  --accent:#ff8a1e;--accent-2:#ffb84a;
-  --glow-1:#ff8a1e;--glow-2:#d4480e;--glow-3:#ffb84a;
-  --shadow:0 20px 60px -20px rgba(255,138,30,.30);
+/* ---------- themes ---------- */
+:root,:root[data-theme="dark"]{
+  --bg:#0c0c0e;--bg-2:#111113;
+  --surface:#16161a;--surface-2:#1d1d21;
+  --border:#26262b;--border-2:#333338;
+  --text:#f0efec;--text-2:#a5a3a0;--text-3:#6a6862;
+  --accent:#e8912d;--accent-2:#c97a1c;--on-accent:#0c0c0e;
+  --radius:10px;--radius-lg:14px;
   color-scheme:dark;
 }
-
-/* Aegean - red wall, blue sea, boat through the arch */
-:root[data-theme="aegean"]{
-  --bg:#0a0508;--bg-2:#140a10;
-  --surface:rgba(60,15,25,.55);--surface-hi:rgba(90,25,40,.7);
-  --border:rgba(255,220,220,.10);--border-hi:rgba(255,220,220,.20);
-  --text:#fff0f0;--text-dim:#c09098;--text-faint:#5a3848;
-  --accent:#e01f3d;--accent-2:#2a7dd8;
-  --glow-1:#e01f3d;--glow-2:#1a5cb8;--glow-3:#ff5580;
-  --shadow:0 20px 60px -20px rgba(224,31,61,.35);
-  color-scheme:dark;
+:root[data-theme="paper"]{
+  --bg:#f6f4ef;--bg-2:#eeece6;
+  --surface:#ffffff;--surface-2:#f3f1eb;
+  --border:#e2ded4;--border-2:#cfcabe;
+  --text:#16161a;--text-2:#56534c;--text-3:#86837a;
+  --accent:#b45309;--accent-2:#8b4007;--on-accent:#ffffff;
+  color-scheme:light;
+}
+:root[data-theme="sepia"]{
+  --bg:#f1e8d5;--bg-2:#e8dec6;
+  --surface:#faf4e0;--surface-2:#eee5ce;
+  --border:#d9cbaa;--border-2:#c5b48a;
+  --text:#2a2015;--text-2:#564428;--text-3:#8a7858;
+  --accent:#8b4513;--accent-2:#6a3410;--on-accent:#ffffff;
+  color-scheme:light;
 }
 
-/* Wave - black with that orange-to-cyan gradient */
-:root[data-theme="wave"]{
-  --bg:#000000;--bg-2:#080808;
-  --surface:rgba(20,20,20,.65);--surface-hi:rgba(35,35,35,.8);
-  --border:rgba(255,255,255,.10);--border-hi:rgba(255,255,255,.22);
-  --text:#f0f0f0;--text-dim:#909090;--text-faint:#4a4a4a;
-  --accent:#ff5533;--accent-2:#ffb800;
-  --glow-1:#ff3d1f;--glow-2:#00b8d4;--glow-3:#ff6b35;
-  --shadow:0 20px 60px -20px rgba(255,85,51,.40);
-  color-scheme:dark;
-}
-
-/* Sakura - deep red, soft petals, quiet branch */
-:root[data-theme="sakura"]{
-  --bg:#1a0408;--bg-2:#2a0810;
-  --surface:rgba(70,15,25,.55);--surface-hi:rgba(100,25,40,.7);
-  --border:rgba(255,230,235,.10);--border-hi:rgba(255,230,235,.22);
-  --text:#fff5f5;--text-dim:#c89098;--text-faint:#6a3844;
-  --accent:#d41830;--accent-2:#ffb8c8;
-  --glow-1:#d41830;--glow-2:#ffb8c8;--glow-3:#ff5570;
-  --shadow:0 20px 60px -20px rgba(212,24,48,.35);
-  color-scheme:dark;
-}
-
-/* Terminal - pure mono, the ASCII space station */
-:root[data-theme="terminal"]{
-  --bg:#000000;--bg-2:#0a0a0a;
-  --surface:rgba(18,18,18,.65);--surface-hi:rgba(30,30,30,.8);
-  --border:rgba(255,255,255,.12);--border-hi:rgba(255,255,255,.28);
-  --text:#e8e8e8;--text-dim:#888888;--text-faint:#404040;
-  --accent:#ffffff;--accent-2:#a0a0a0;
-  --glow-1:#404040;--glow-2:#808080;--glow-3:#c0c0c0;
-  --shadow:0 20px 60px -20px rgba(255,255,255,.10);
-  color-scheme:dark;
-}
-
-/* Escape - black room, green path, sky through the window */
-:root[data-theme="escape"]{
-  --bg:#000000;--bg-2:#060a06;
-  --surface:rgba(20,40,25,.55);--surface-hi:rgba(30,60,35,.7);
-  --border:rgba(220,255,220,.10);--border-hi:rgba(220,255,220,.22);
-  --text:#e8f5e8;--text-dim:#7aa87a;--text-faint:#3d5a3d;
-  --accent:#4dc95a;--accent-2:#7dc8f0;
-  --glow-1:#2a8a3a;--glow-2:#4a9ee0;--glow-3:#7dc8f0;
-  --shadow:0 20px 60px -20px rgba(77,201,90,.30);
-  color-scheme:dark;
-}
-
-/* Pixel - pixelated earth, "be kind", grass below */
-:root[data-theme="pixel"]{
-  --bg:#050a15;--bg-2:#0a1428;
-  --surface:rgba(20,40,70,.55);--surface-hi:rgba(30,55,95,.7);
-  --border:rgba(200,220,255,.10);--border-hi:rgba(200,220,255,.22);
-  --text:#e8f0ff;--text-dim:#7a94b8;--text-faint:#3a4a68;
-  --accent:#4a8fd8;--accent-2:#6bbf4a;
-  --glow-1:#3a6fb8;--glow-2:#6bbf4a;--glow-3:#7aa8d8;
-  --shadow:0 20px 60px -20px rgba(74,143,216,.35);
-  color-scheme:dark;
-}
-
-/* Dusk - the anime clouds I can't stop staring at */
-:root[data-theme="dusk"]{
-  --bg:#0a1428;--bg-2:#121e38;
-  --surface:rgba(35,45,75,.55);--surface-hi:rgba(55,70,110,.7);
-  --border:rgba(255,230,210,.10);--border-hi:rgba(255,230,210,.22);
-  --text:#f5e8e0;--text-dim:#a8b0c8;--text-faint:#506078;
-  --accent:#f5c088;--accent-2:#7aa8d8;
-  --glow-1:#f5c088;--glow-2:#5a88b8;--glow-3:#7aa8d8;
-  --shadow:0 20px 60px -20px rgba(245,192,136,.30);
-  color-scheme:dark;
-}
-
-/* ============================================================
-   BASE
-   ============================================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html{background:var(--bg);-webkit-text-size-adjust:100%}
 body{
-  font-family:'Inter Tight',system-ui,sans-serif;
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
   background:var(--bg);color:var(--text);
   min-height:100vh;line-height:1.55;font-size:15px;
-  -webkit-font-smoothing:antialiased;overflow-x:hidden;
-  position:relative;
+  -webkit-font-smoothing:antialiased;
+  display:flex;flex-direction:column;
   padding-top:env(safe-area-inset-top);
   padding-bottom:env(safe-area-inset-bottom);
-  transition:background-color .7s cubic-bezier(.4,0,.2,1),
-             color .7s cubic-bezier(.4,0,.2,1);
-  display:flex;flex-direction:column;
-}
-/* grain overlay - subtle, keeps everything from looking too clean */
-body::before{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-  opacity:.05;mix-blend-mode:overlay;
+  transition:background-color .3s ease,color .3s ease;
 }
 button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
 a{color:inherit;text-decoration:none}
-input{font:inherit;color:inherit}
-.hidden{display:none !important}
-::selection{background:var(--accent);color:var(--bg)}
-h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:500;letter-spacing:-.03em;line-height:1.05;font-variation-settings:'opsz' 48}
+input,select{font:inherit;color:inherit}
+img,svg{display:block;max-width:100%}
+.hidden{display:none!important}
+h1,h2,h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;letter-spacing:-.015em;line-height:1.1}
 
-/* ============================================================
-   FLOATING GLOWS
-   Three big blurred circles that drift. Cheap to render,
-   gives the page a pulse without being a video.
-   ============================================================ */
-.orbs{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.45;will-change:transform}
-.orb-1{width:520px;height:520px;background:var(--glow-1);top:-10%;left:-10%;animation:float1 22s ease-in-out infinite}
-.orb-2{width:420px;height:420px;background:var(--glow-2);top:30%;right:-15%;animation:float2 26s ease-in-out infinite}
-.orb-3{width:600px;height:600px;background:var(--glow-3);bottom:-20%;left:20%;animation:float3 30s ease-in-out infinite}
-@keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(120px,80px) scale(1.15)}}
-@keyframes float2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-100px,120px) scale(.9)}}
-@keyframes float3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(80px,-100px) scale(1.1)}}
-
-/* ============================================================
-   HEADER
-   ============================================================ */
+/* ---------- header ---------- */
 .store-header{
   position:sticky;top:0;z-index:100;
-  padding:16px clamp(18px,4vw,40px);
-  backdrop-filter:blur(20px) saturate(1.4);
-  -webkit-backdrop-filter:blur(20px) saturate(1.4);
-  background:color-mix(in srgb,var(--bg) 75%,transparent);
+  background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:saturate(1.2) blur(14px);
+  -webkit-backdrop-filter:saturate(1.2) blur(14px);
   border-bottom:1px solid var(--border);
 }
-.header-row{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1400px;margin-inline:auto;flex-wrap:wrap}
-.logo{
-  display:flex;align-items:center;gap:12px;
-  font-family:'Bricolage Grotesque',sans-serif;
-  font-weight:600;font-size:1.35rem;letter-spacing:-.04em;
-  animation:fadeSlideDown .6s cubic-bezier(.2,.8,.2,1) both;
+.header-inner{
+  max-width:1200px;margin-inline:auto;
+  padding:14px clamp(20px,4vw,36px);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
 }
-.logo-mark{
-  width:38px;height:38px;display:grid;place-items:center;
-  border-radius:10px;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  position:relative;overflow:hidden;
-  box-shadow:0 8px 24px -8px var(--accent);
-  transition:background .7s cubic-bezier(.4,0,.2,1),box-shadow .7s cubic-bezier(.4,0,.2,1);
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+.brand-mark{
+  width:36px;height:36px;border-radius:9px;
+  background:var(--accent);color:var(--on-accent);
+  display:grid;place-items:center;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;font-weight:700;letter-spacing:.02em;
+  flex-shrink:0;
 }
-.logo-mark::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.4) 50%,transparent 70%);
-  background-size:200% 100%;
-  animation:shine 3s linear infinite;
+.brand-name{font-size:14px;font-weight:600;letter-spacing:.01em;color:var(--text);line-height:1.1}
+.brand-sub{
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);margin-top:3px;
 }
-@keyframes shine{0%{background-position:200% 0}100%{background-position:-100% 0}}
-.logo-mark svg{width:22px;height:22px;position:relative;z-index:1}
-.logo-text{
-  background:linear-gradient(90deg,var(--text),var(--accent));
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-  transition:background .7s cubic-bezier(.4,0,.2,1);
-}
-.logo-text small{display:block;font-size:.6rem;font-weight:400;color:var(--text-dim);-webkit-text-fill-color:currentColor;letter-spacing:.22em;text-transform:uppercase;margin-top:-2px}
-
-/* single theme button - cycles on click, no menus */
 .theme-btn{
   display:inline-flex;align-items:center;gap:10px;
-  padding:8px 16px 8px 10px;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:99px;cursor:pointer;
-  font-family:'JetBrains Mono',monospace;font-size:.72rem;
-  letter-spacing:.08em;text-transform:uppercase;
-  color:var(--text-dim);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  transition:all .3s cubic-bezier(.4,0,.2,1);
+  padding:8px 12px 8px 8px;
+  border:1px solid var(--border);border-radius:var(--radius);
+  background:var(--surface);color:var(--text-2);
+  font-size:12px;font-weight:500;
+  transition:border-color .15s ease,color .15s ease;
+  flex-shrink:0;
 }
-.theme-btn:hover{border-color:var(--border-hi);color:var(--text);transform:translateY(-1px)}
-.theme-btn:active{transform:translateY(0) scale(.97)}
+.theme-btn:hover{border-color:var(--border-2);color:var(--text)}
 .theme-swatch{
-  width:22px;height:22px;border-radius:50%;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  box-shadow:0 0 0 1px rgba(255,255,255,.15) inset;
-  transition:background .7s cubic-bezier(.4,0,.2,1);
-  position:relative;overflow:hidden;
+  width:20px;height:20px;border-radius:6px;
+  background:var(--accent);
+  border:1px solid color-mix(in srgb,var(--accent) 60%,black);
 }
-.theme-swatch::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,.3),transparent 60%);
-}
-.theme-name{min-width:70px;text-align:left}
 
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero{position:relative;z-index:2;padding:clamp(40px,7vw,90px) clamp(18px,4vw,40px) clamp(30px,5vw,50px);max-width:1400px;margin-inline:auto;width:100%}
-.hero-inner{max-width:820px}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:'JetBrains Mono',monospace;font-size:.7rem;
-  letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim);
-  margin-bottom:22px;padding:8px 14px;
-  border:1px solid var(--border);border-radius:99px;
-  background:var(--surface);
-  animation:fadeSlideUp .6s cubic-bezier(.2,.8,.2,1) .1s both;
-}
-.hero-eyebrow .pulse{
-  width:7px;height:7px;border-radius:50%;background:var(--accent);
-  box-shadow:0 0 0 0 var(--accent);
-  animation:pulse 2s ease-in-out infinite;
-}
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 70%,transparent)}
-  70%{box-shadow:0 0 0 12px transparent}
-  100%{box-shadow:0 0 0 0 transparent}
+/* ---------- hero ---------- */
+.hero{
+  max-width:1200px;margin-inline:auto;width:100%;
+  padding:clamp(40px,7vw,72px) clamp(20px,4vw,36px) clamp(28px,5vw,44px);
 }
 .hero h1{
-  font-size:clamp(2.6rem,7.5vw,5.4rem);
-  letter-spacing:-.05em;line-height:.94;
-  margin-bottom:20px;font-weight:400;
-  animation:fadeSlideUp .8s cubic-bezier(.2,.8,.2,1) .15s both;
+  font-size:clamp(2.4rem,6vw,4.2rem);
+  color:var(--text);max-width:16ch;margin-bottom:16px;
 }
-.hero h1 em{
-  font-style:italic;font-weight:300;
-  font-variation-settings:'opsz' 96,'SOFT' 100;
-  background:linear-gradient(120deg,var(--accent),var(--accent-2));
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-  transition:background .7s cubic-bezier(.4,0,.2,1);
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{
+  font-size:clamp(.95rem,1.6vw,1.05rem);
+  color:var(--text-2);max-width:52ch;line-height:1.6;
 }
-.hero-sub{font-size:clamp(.95rem,1.8vw,1.1rem);line-height:1.65;color:var(--text-dim);max-width:600px;animation:fadeSlideUp .8s cubic-bezier(.2,.8,.2,1) .25s both}
-.hero-stats{display:flex;gap:34px;flex-wrap:wrap;margin-top:36px;animation:fadeSlideUp .8s cubic-bezier(.2,.8,.2,1) .35s both}
-.stat{display:flex;flex-direction:column;gap:4px}
+.hero-stats{
+  display:flex;gap:40px;flex-wrap:wrap;
+  margin-top:28px;padding-top:24px;
+  border-top:1px solid var(--border);max-width:520px;
+}
+.stat{display:flex;flex-direction:column;gap:2px}
 .stat-v{
-  font-family:'Bricolage Grotesque',sans-serif;font-weight:600;
-  font-size:1.75rem;letter-spacing:-.04em;
-  font-variation-settings:'opsz' 72;
-  background:linear-gradient(120deg,var(--text),var(--accent));
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-  transition:background .7s cubic-bezier(.4,0,.2,1);
+  font-size:1.35rem;font-weight:600;color:var(--text);
+  font-feature-settings:"tnum";letter-spacing:-.02em;
 }
-.stat-l{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-faint)}
-@keyframes fadeSlideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-@keyframes fadeSlideDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+.stat-l{
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);
+}
 
-/* ============================================================
-   FEATURED - the big one at the top
-   Trigger: write "featured: true" anywhere in the release body
-   ============================================================ */
-.featured-wrap{position:relative;z-index:2;padding:0 clamp(18px,4vw,40px) 30px;max-width:1400px;margin-inline:auto;width:100%}
+/* ---------- featured ---------- */
+.featured-wrap{
+  max-width:1200px;margin-inline:auto;width:100%;
+  padding:0 clamp(20px,4vw,36px) 32px;
+}
 .featured-card{
-  position:relative;padding:32px;
+  display:grid;grid-template-columns:auto 1fr auto;
+  align-items:center;gap:24px;
+  padding:24px;
   background:var(--surface);border:1px solid var(--border);
-  border-radius:24px;
-  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-  overflow:hidden;
-  display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;
-  animation:fadeSlideUp .8s cubic-bezier(.2,.8,.2,1) .45s both;
-  box-shadow:var(--shadow);
-  transition:background .7s cubic-bezier(.4,0,.2,1),border-color .7s cubic-bezier(.4,0,.2,1),box-shadow .7s cubic-bezier(.4,0,.2,1);
+  border-radius:var(--radius-lg);
 }
-.featured-card::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 20% 50%,color-mix(in srgb,var(--accent) 15%,transparent),transparent 60%);
-  pointer-events:none;
-}
-.featured-card::after{
-  content:'';position:absolute;inset:0;padding:1.5px;border-radius:24px;
-  background:linear-gradient(120deg,var(--accent),var(--accent-2),var(--glow-3),var(--accent));
-  background-size:300% 300%;
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  animation:borderFlow 6s linear infinite;pointer-events:none;
-}
-@keyframes borderFlow{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 .featured-badge{
-  position:absolute;top:20px;right:24px;
-  padding:5px 12px;border-radius:99px;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  color:#fff;font-family:'JetBrains Mono',monospace;
-  font-size:.62rem;font-weight:600;letter-spacing:.12em;
-  text-transform:uppercase;z-index:2;
-  box-shadow:0 6px 20px -6px var(--accent);
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
+  margin-bottom:8px;
 }
 .featured-icon{
-  width:120px;height:120px;border-radius:28px;
+  width:84px;height:84px;border-radius:18px;
   display:grid;place-items:center;flex-shrink:0;
-  font-family:'Bricolage Grotesque',sans-serif;font-weight:600;
-  font-size:2.8rem;color:#fff;letter-spacing:-.05em;
-  font-variation-settings:'opsz' 96;
-  position:relative;overflow:hidden;
-  box-shadow:0 20px 40px -12px rgba(0,0,0,.5);
+  font-size:1.8rem;font-weight:600;color:#fff;
+  letter-spacing:-.02em;overflow:hidden;
+  background:var(--surface-2);
 }
-.featured-icon::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.25),transparent 60%)}
-.featured-content{position:relative;z-index:1;min-width:0}
-.featured-content h2{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.03em;font-weight:500;margin-bottom:6px;line-height:1.1;font-variation-settings:'opsz' 72}
-.featured-content .app-version{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text-faint);letter-spacing:.05em;display:inline-flex;align-items:center;gap:6px;margin-bottom:14px}
-.featured-content .app-version::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
-.featured-desc{font-size:.95rem;line-height:1.65;color:var(--text-dim);margin-bottom:18px;max-width:640px}
-.featured-info{display:flex;gap:18px;flex-wrap:wrap;padding:14px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:18px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--text-faint)}
+.featured-icon img{width:100%;height:100%;object-fit:cover;display:block}
+.featured-content{min-width:0}
+.featured-content h2{
+  font-size:clamp(1.4rem,2.6vw,1.9rem);
+  color:var(--text);margin-bottom:6px;
+}
+.featured-meta{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--text-3);letter-spacing:.03em;margin-bottom:10px;
+}
+.featured-desc{
+  font-size:.9rem;color:var(--text-2);line-height:1.55;
+  max-width:60ch;margin-bottom:14px;
+}
+.featured-info{
+  display:flex;gap:20px;flex-wrap:wrap;
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);
+}
 .featured-info span{display:inline-flex;align-items:center;gap:6px}
-.featured-info svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.featured-cta{display:flex;gap:10px;flex-wrap:wrap}
-.featured-cta .download-btn{width:auto;min-width:200px}
-@media (max-width:720px){
-  .featured-card{grid-template-columns:1fr;padding:24px;gap:20px}
-  .featured-icon{width:88px;height:88px;font-size:2rem;border-radius:22px}
+.featured-info svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:760px){
+  .featured-card{grid-template-columns:1fr;gap:20px}
+  .featured-icon{width:64px;height:64px;border-radius:14px;font-size:1.4rem}
 }
 
-/* ============================================================
-   TOOLBAR - search + sort
-   ============================================================ */
-.toolbar{position:relative;z-index:2;padding:0 clamp(18px,4vw,40px) 20px;max-width:1400px;margin-inline:auto;width:100%;display:flex;gap:12px;flex-wrap:wrap;align-items:center;animation:fadeSlideUp .8s cubic-bezier(.2,.8,.2,1) .5s both}
-.search-wrap{flex:1;min-width:220px;position:relative}
-.search-wrap svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:16px;height:16px;stroke:var(--text-faint);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
-.search-input{
-  width:100%;padding:13px 18px 13px 44px;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:14px;color:var(--text);font-size:.94rem;outline:none;
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  transition:border-color .3s ease,background .7s cubic-bezier(.4,0,.2,1),box-shadow .3s ease;
+/* ---------- toolbar ---------- */
+.toolbar{
+  max-width:1200px;margin-inline:auto;width:100%;
+  padding:0 clamp(20px,4vw,36px) 16px;
+  display:flex;gap:10px;align-items:stretch;flex-wrap:wrap;
 }
-.search-input::placeholder{color:var(--text-faint)}
-.search-input:focus{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 15%,transparent)}
-.sort-select{
-  padding:13px 40px 13px 18px;
+.search-wrap{flex:1;min-width:220px;position:relative}
+.search-wrap svg{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  width:15px;height:15px;stroke:var(--text-3);fill:none;
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;pointer-events:none;
+}
+.search-input{
+  width:100%;padding:11px 14px 11px 38px;
   background:var(--surface);border:1px solid var(--border);
-  border-radius:14px;color:var(--text);font-size:.9rem;
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  appearance:none;cursor:pointer;outline:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23909090' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 16px center;
-  transition:border-color .3s ease,background .7s cubic-bezier(.4,0,.2,1);
+  border-radius:var(--radius);color:var(--text);font-size:14px;
+  outline:none;transition:border-color .15s ease;
+}
+.search-input::placeholder{color:var(--text-3)}
+.search-input:focus{border-color:var(--accent)}
+.sort-select{
+  padding:11px 36px 11px 14px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);color:var(--text);font-size:13px;
+  cursor:pointer;outline:none;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%236a6862' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;
+  transition:border-color .15s ease;
 }
 .sort-select:focus{border-color:var(--accent)}
 
-/* ============================================================
-   CATEGORY CHIPS
-   These come from "#tagname" I put in the release body
-   ============================================================ */
-.categories{position:relative;z-index:2;padding:0 clamp(18px,4vw,40px) 24px;max-width:1400px;margin-inline:auto;width:100%;display:flex;gap:8px;flex-wrap:wrap;animation:fadeSlideUp .8s cubic-bezier(.2,.8,.2,1) .55s both}
+/* ---------- categories ---------- */
+.categories{
+  max-width:1200px;margin-inline:auto;width:100%;
+  padding:0 clamp(20px,4vw,36px) 20px;
+  display:flex;gap:6px;flex-wrap:wrap;
+}
 .chip{
-  padding:8px 16px;border-radius:99px;
-  background:var(--surface);border:1px solid var(--border);
-  color:var(--text-dim);font-size:.82rem;font-weight:500;
-  cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  white-space:nowrap;
+  padding:6px 12px;background:transparent;
+  border:1px solid var(--border);border-radius:999px;
+  color:var(--text-2);font-size:12.5px;font-weight:500;
+  cursor:pointer;transition:all .15s ease;white-space:nowrap;
 }
-.chip:hover{border-color:var(--border-hi);color:var(--text);transform:translateY(-1px)}
-.chip.active{
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  color:#fff;border-color:transparent;
-  box-shadow:0 6px 18px -6px var(--accent);
+.chip:hover{border-color:var(--border-2);color:var(--text)}
+.chip.active{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.chip .count{
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;
+  opacity:.65;margin-left:5px;
 }
-.chip .count{font-family:'JetBrains Mono',monospace;font-size:.68rem;opacity:.7;margin-left:6px}
+.chip.active .count{opacity:.85}
 
-/* ============================================================
-   APP GRID
-   Icons are generated from the app name. I don't make any myself.
-   ============================================================ */
-.grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;padding:0 clamp(18px,4vw,40px) 60px;max-width:1400px;margin-inline:auto;width:100%;flex:1}
+/* ---------- grid ---------- */
+.grid{
+  max-width:1200px;margin-inline:auto;width:100%;flex:1;
+  padding:0 clamp(20px,4vw,36px) 60px;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:14px;
+}
 .app-card{
-  position:relative;padding:24px;
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:20px;
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  overflow:hidden;
-  transition:transform .4s cubic-bezier(.2,.8,.2,1),
-             border-color .3s ease,
-             box-shadow .4s ease,
-             background .7s cubic-bezier(.4,0,.2,1);
-  animation:cardIn .6s cubic-bezier(.2,.8,.2,1) both;
-  animation-delay:var(--delay,0ms);
   display:flex;flex-direction:column;
+  padding:20px;background:var(--surface);
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  transition:border-color .15s ease;
 }
-@keyframes cardIn{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
-.app-card:hover{transform:translateY(-6px);border-color:transparent;box-shadow:var(--shadow)}
-.app-card::after{
-  content:'';position:absolute;inset:0;border-radius:20px;padding:1px;
-  background:linear-gradient(120deg,var(--accent),var(--accent-2),var(--glow-3),var(--accent));
-  background-size:300% 300%;
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;mask-composite:exclude;
-  opacity:0;transition:opacity .4s ease;
-  animation:borderFlow 6s linear infinite;pointer-events:none;
-}
-.app-card:hover::after{opacity:1}
-
-.card-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+.app-card:hover{border-color:var(--border-2)}
+.card-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px}
 .app-icon{
-  width:64px;height:64px;border-radius:16px;flex-shrink:0;
-  display:grid;place-items:center;
-  font-family:'Bricolage Grotesque',sans-serif;font-weight:600;
-  font-size:1.5rem;color:#fff;letter-spacing:-.04em;
-  font-variation-settings:'opsz' 72;
-  position:relative;overflow:hidden;
-  box-shadow:0 8px 20px -6px rgba(0,0,0,.4);
+  width:52px;height:52px;border-radius:12px;
+  display:grid;place-items:center;flex-shrink:0;
+  font-size:1.15rem;font-weight:600;color:#fff;
+  letter-spacing:-.02em;overflow:hidden;
+  background:var(--surface-2);
 }
-.app-icon::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.25),transparent 60%)}
+.app-icon img{width:100%;height:100%;object-fit:cover;display:block}
 .app-meta{flex:1;min-width:0}
 .app-name{
-  font-family:'Bricolage Grotesque',sans-serif;font-weight:500;
-  font-size:1.05rem;letter-spacing:-.02em;
-  font-variation-settings:'opsz' 48;
-  margin-bottom:4px;
+  font-size:.98rem;font-weight:600;letter-spacing:-.005em;
+  color:var(--text);line-height:1.25;margin-bottom:3px;
   overflow:hidden;text-overflow:ellipsis;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
 }
-.app-version{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--text-faint);letter-spacing:.05em;display:inline-flex;align-items:center;gap:6px}
-.app-version::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+.app-version{
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;
+  color:var(--text-3);letter-spacing:.03em;
+}
 .card-desc{
-  font-size:.82rem;line-height:1.55;color:var(--text-dim);
-  margin-bottom:16px;overflow:hidden;text-overflow:ellipsis;
+  font-size:.83rem;color:var(--text-2);line-height:1.5;
+  margin-bottom:16px;min-height:2.5em;
+  overflow:hidden;text-overflow:ellipsis;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
-  min-height:2.55em;flex:1;
 }
-.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;min-height:22px}
-.card-tag{
-  padding:3px 9px;border-radius:99px;font-size:.66rem;
-  font-family:'JetBrains Mono',monospace;
-  background:color-mix(in srgb,var(--accent) 12%,transparent);
-  color:var(--accent);
-  border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);
-  cursor:pointer;transition:all .2s ease;
-}
-.card-tag:hover{background:color-mix(in srgb,var(--accent) 22%,transparent)}
 .card-info{
-  display:flex;gap:14px;flex-wrap:wrap;
-  padding:12px 0;
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  margin-bottom:16px;
-  font-family:'JetBrains Mono',monospace;font-size:.7rem;
-  color:var(--text-faint);
+  display:flex;gap:16px;flex-wrap:wrap;
+  padding-top:14px;border-top:1px solid var(--border);
+  margin-bottom:14px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-3);
 }
-.card-info span{display:inline-flex;align-items:center;gap:6px}
-.card-info svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card-info span{display:inline-flex;align-items:center;gap:5px}
+.card-info svg{
+  width:11px;height:11px;fill:none;stroke:currentColor;
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+}
 .download-btn{
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  width:100%;padding:13px 18px;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  color:#fff;font-family:'Bricolage Grotesque',sans-serif;
-  font-weight:600;font-size:.95rem;letter-spacing:-.01em;
-  border-radius:12px;cursor:pointer;position:relative;overflow:hidden;
-  transition:transform .2s ease,box-shadow .3s ease,background .7s cubic-bezier(.4,0,.2,1);
-  box-shadow:0 8px 22px -8px var(--accent);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;padding:11px 16px;
+  background:var(--accent);color:var(--on-accent);
+  font-size:13.5px;font-weight:600;border-radius:var(--radius);
+  transition:background-color .15s ease,transform .12s ease;
+  margin-top:auto;
 }
-.download-btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px -8px var(--accent)}
+.download-btn:hover{background:var(--accent-2);transform:translateY(-1px)}
 .download-btn:active{transform:translateY(0)}
-.download-btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.download-btn::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%);
-  background-size:200% 100%;
-  animation:shine 2.6s linear infinite;
-  pointer-events:none;
+.download-btn svg{
+  width:15px;height:15px;fill:none;stroke:currentColor;
+  stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
 }
 
-/* ============================================================
-   SKELETON + EMPTY STATES
-   ============================================================ */
+/* ---------- skeleton + states ---------- */
 .skeleton{
-  height:360px;border-radius:20px;
-  background:linear-gradient(90deg,var(--surface) 0%,var(--surface-hi) 50%,var(--surface) 100%);
-  background-size:200% 100%;
-  animation:skel 1.6s ease-in-out infinite;
-  border:1px solid var(--border);
-}
-@keyframes skel{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.state{grid-column:1/-1;padding:80px 20px;text-align:center;animation:fadeSlideUp .6s ease both}
-.state-icon{width:72px;height:72px;margin:0 auto 20px;border-radius:20px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--border)}
-.state-icon svg{width:32px;height:32px;fill:none;stroke:var(--text-dim);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.state h3{font-size:1.4rem;font-weight:500;margin-bottom:8px;letter-spacing:-.02em;font-variation-settings:'opsz' 48}
-.state p{color:var(--text-dim);font-size:.9rem;max-width:400px;margin:0 auto}
-
-/* ============================================================
-   WHATSAPP FLOATING BUTTON
-   Green circle, bottom-right, sits above everything.
-   ============================================================ */
-.whatsapp-btn{
-  position:fixed;
-  right:max(20px, env(safe-area-inset-right, 20px));
-  bottom:calc(20px + env(safe-area-inset-bottom, 0px));
-  width:58px;height:58px;border-radius:50%;
-  background:linear-gradient(135deg,#25d366,#128c7e);
-  display:grid;place-items:center;
-  box-shadow:0 12px 32px -8px rgba(37,211,102,.55),
-             0 6px 16px -4px rgba(0,0,0,.4);
-  z-index:900;
-  transition:transform .3s cubic-bezier(.2,.8,.2,1),
-             box-shadow .3s ease;
-  animation:whatsappIn .6s cubic-bezier(.2,.8,.2,1) .8s both;
-}
-.whatsapp-btn:hover{
-  transform:translateY(-4px) scale(1.05);
-  box-shadow:0 18px 40px -8px rgba(37,211,102,.65),
-             0 8px 20px -4px rgba(0,0,0,.5);
-}
-.whatsapp-btn:active{transform:translateY(-1px) scale(.98)}
-.whatsapp-btn svg{width:30px;height:30px;fill:#fff;position:relative;z-index:1}
-.whatsapp-btn::before{
-  content:'';position:absolute;inset:0;border-radius:50%;
-  background:rgba(37,211,102,.5);
-  animation:whatsappPulse 2.4s ease-out infinite;
-  z-index:0;
-}
-@keyframes whatsappPulse{
-  0%{transform:scale(1);opacity:.7}
-  100%{transform:scale(1.7);opacity:0}
-}
-@keyframes whatsappIn{
-  from{opacity:0;transform:translateY(20px) scale(.5)}
-  to{opacity:1;transform:none}
-}
-.whatsapp-tooltip{
-  position:absolute;right:70px;top:50%;transform:translateY(-50%);
-  padding:8px 14px;border-radius:10px;
+  height:280px;border-radius:var(--radius-lg);
   background:var(--surface);border:1px solid var(--border);
-  color:var(--text);font-size:.78rem;font-weight:500;
-  white-space:nowrap;
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-  opacity:0;pointer-events:none;
-  transition:opacity .25s ease,transform .25s ease;
-  box-shadow:0 8px 24px -8px rgba(0,0,0,.4);
+  position:relative;overflow:hidden;
 }
-.whatsapp-btn:hover .whatsapp-tooltip{opacity:1;transform:translateY(-50%) translateX(-4px)}
-@media (max-width:520px){
-  .whatsapp-btn{width:52px;height:52px;right:14px;bottom:calc(14px + env(safe-area-inset-bottom, 0px))}
-  .whatsapp-btn svg{width:26px;height:26px}
-  .whatsapp-tooltip{display:none}
+.skeleton::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--surface-2) 100%,transparent),transparent);
+  animation:skel 1.6s ease-in-out infinite;
+}
+@keyframes skel{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.state{grid-column:1/-1;padding:72px 20px;text-align:center}
+.state-icon{
+  width:56px;height:56px;margin:0 auto 16px;
+  border-radius:14px;display:grid;place-items:center;
+  background:var(--surface);border:1px solid var(--border);
+}
+.state-icon svg{
+  width:24px;height:24px;fill:none;stroke:var(--text-3);
+  stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
+}
+.state h3{font-size:1.4rem;margin-bottom:8px;color:var(--text)}
+.state p{
+  color:var(--text-2);font-size:.88rem;
+  max-width:400px;margin-inline:auto;line-height:1.6;
 }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
+/* ---------- whatsapp ---------- */
+.whatsapp-btn{
+  position:fixed;right:max(20px,env(safe-area-inset-right,20px));
+  bottom:calc(20px + env(safe-area-inset-bottom,0px));
+  width:46px;height:46px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--border);
+  display:grid;place-items:center;z-index:900;
+  transition:border-color .15s ease;
+}
+.whatsapp-btn:hover{border-color:var(--border-2)}
+.whatsapp-btn svg{width:22px;height:22px;fill:#25d366}
+
+/* ---------- footer ---------- */
 .store-footer{
-  position:relative;z-index:2;
-  padding:40px clamp(18px,4vw,40px) calc(40px + env(safe-area-inset-bottom,0px));
-  border-top:1px solid var(--border);margin-top:auto;
+  border-top:1px solid var(--border);
+  padding:28px clamp(20px,4vw,36px) calc(32px + env(safe-area-inset-bottom,0px));
+  margin-top:auto;
 }
 .footer-inner{
-  max-width:1400px;margin-inline:auto;
+  max-width:1200px;margin-inline:auto;
   display:flex;align-items:center;justify-content:space-between;
   gap:16px;flex-wrap:wrap;
-  font-family:'JetBrains Mono',monospace;font-size:.72rem;
-  color:var(--text-faint);letter-spacing:.03em;
 }
 .footer-brand{
-  font-family:'Bricolage Grotesque',sans-serif;font-weight:600;
-  font-size:.95rem;letter-spacing:-.02em;
-  background:linear-gradient(120deg,var(--text),var(--accent));
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;
-  transition:background .7s cubic-bezier(.4,0,.2,1);
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--text-2);
 }
-.footer-links{display:flex;gap:20px;flex-wrap:wrap}
-.footer-links a{transition:color .2s ease}
+.footer-links{
+  display:flex;gap:20px;flex-wrap:wrap;
+  font-size:12.5px;color:var(--text-3);
+}
+.footer-links a{color:var(--text-2);transition:color .15s ease}
 .footer-links a:hover{color:var(--accent)}
 .footer-copyright{
-  width:100%;text-align:center;
-  margin-top:20px;padding-top:20px;
-  border-top:1px solid var(--border);
-  font-family:'JetBrains Mono',monospace;font-size:.7rem;
-  color:var(--text-faint);letter-spacing:.04em;
+  max-width:1200px;margin:20px auto 0;
+  padding-top:20px;border-top:1px solid var(--border);
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--text-3);letter-spacing:.02em;text-align:center;
 }
-.footer-copyright b{color:var(--text-dim);font-weight:600}
-.footer-copyright a{color:var(--accent);transition:opacity .2s ease}
-.footer-copyright a:hover{opacity:.8}
+.footer-copyright a{color:var(--text-2);transition:color .15s ease}
+.footer-copyright a:hover{color:var(--accent)}
+.footer-copyright b{color:var(--text-2);font-weight:600}
 
-/* theme change transition - smooth but short so it feels responsive */
-body, .store-header, .search-input, .sort-select, .chip, .app-card,
-.featured-card, .download-btn, .theme-btn, .logo-mark, .logo-text,
-.stat-v, .hero h1 em, .footer-brand {
-  transition-duration:.7s;
-  transition-timing-function:cubic-bezier(.4,0,.2,1);
+@media (max-width:520px){
+  .hero-stats{gap:26px}
+  .app-card{padding:18px}
+  .grid{gap:12px}
 }
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{
-    animation-duration:.01ms !important;
-    animation-iteration-count:1 !important;
-    transition-duration:.01ms !important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
   }
-}
-@media (max-width:520px){
-  .hero-stats{gap:24px}
-  .app-card{padding:20px}
-  .grid{gap:16px}
-  .featured-cta .download-btn{width:100%}
-  .theme-name{display:none}
-  .theme-btn{padding:8px 10px}
 }
 </style>
 </head>
 <body>
 
-<div class="orbs" aria-hidden="true">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-</div>
-
 <header class="store-header">
-  <div class="header-row">
-    <div class="logo">
-      <div class="logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 18V6l6 6 6-6v12"/>
-        </svg>
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-mark">M88</div>
+      <div>
+        <div class="brand-name">MC88 Store</div>
+        <div class="brand-sub">Free Android apps</div>
       </div>
-      <div class="logo-text">MC88<small>store</small></div>
     </div>
-    <!-- One button. Click cycles themes. No menu, no dots. -->
     <button class="theme-btn" id="themeBtn" title="Change theme">
-      <span class="theme-swatch" id="themeSwatch"></span>
-      <span class="theme-name" id="themeName">Souk</span>
+      <span class="theme-swatch"></span>
+      <span id="themeName">Dark</span>
     </button>
   </div>
 </header>
 
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">
-      <span class="pulse"></span>
-      <span>Live from GitHub Releases</span>
+  <h1>Apps built <em>in the open.</em></h1>
+  <p class="hero-sub">
+    Every release is built directly from source. No accounts, no tracking, no ads.
+    Download the APK and install.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-v" id="statApps">—</span>
+      <span class="stat-l">Apps</span>
     </div>
-    <h1>Apps, <em>crafted</em><br>for the curious.</h1>
-    <p class="hero-sub">
-      A personal collection of Android apps by MC88. Every release is built,
-      signed, and shipped automatically. Download. Install. Enjoy.
-    </p>
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-v" id="statApps">-</span><span class="stat-l">Apps</span></div>
-      <div class="stat"><span class="stat-v" id="statDownloads">-</span><span class="stat-l">Downloads</span></div>
-      <div class="stat"><span class="stat-v">Free</span><span class="stat-l">Forever</span></div>
+    <div class="stat">
+      <span class="stat-v">MIT</span>
+      <span class="stat-l">License</span>
+    </div>
+    <div class="stat">
+      <span class="stat-v">Free</span>
+      <span class="stat-l">Forever</span>
     </div>
   </div>
 </section>
 
-<!-- Featured card appears here if any release has "featured: true" -->
 <section class="featured-wrap hidden" id="featuredWrap"></section>
 
 <div class="toolbar">
   <div class="search-wrap">
-    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-    <input type="text" class="search-input" id="searchInput" placeholder="Search apps..." autocomplete="off" spellcheck="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" class="search-input" id="searchInput" placeholder="Search apps" autocomplete="off" spellcheck="false">
   </div>
-  <select class="sort-select" id="sortSelect">
-    <option value="newest">Newest first</option>
-    <option value="oldest">Oldest first</option>
-    <option value="name">Name A-Z</option>
+  <select class="sort-select" id="sortSelect" aria-label="Sort apps">
+    <option value="newest">Newest</option>
+    <option value="oldest">Oldest</option>
+    <option value="name">Name A–Z</option>
     <option value="size">Size</option>
-    <option value="downloads">Most downloaded</option>
   </select>
 </div>
 
-<!-- Category chips fill here from #tags in releases -->
 <div class="categories hidden" id="categories"></div>
 
 <main class="grid" id="appGrid">
-  <div class="skeleton"></div><div class="skeleton"></div>
-  <div class="skeleton"></div><div class="skeleton"></div>
-  <div class="skeleton"></div><div class="skeleton"></div>
+  <div class="skeleton"></div>
+  <div class="skeleton"></div>
+  <div class="skeleton"></div>
+  <div class="skeleton"></div>
+  <div class="skeleton"></div>
+  <div class="skeleton"></div>
 </main>
 
 <footer class="store-footer">
   <div class="footer-inner">
-    <span class="footer-brand">MC88 STORE</span>
+    <span class="footer-brand">MC88 Store</span>
     <div class="footer-links">
       <a href="https://github.com/MC-MC88" target="_blank" rel="noopener">GitHub</a>
-      <a href="mailto:mohamed005cheikh@gmail.com">Contact</a>
+      <a href="mailto:mohamed005cheikh@gmail.com">Email</a>
       <a href="https://wa.me/22230726475" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="https://github.com/MC-MC88" target="_blank" rel="noopener">MIT License</a>
     </div>
   </div>
   <div class="footer-copyright">
-    COPYRIGHT : <a href="mailto:mohamed005cheikh@gmail.com">Mohamed005cheikh@gmail.com</a> | <b>by MC88</b>
+    © 2026 · <a href="mailto:mohamed005cheikh@gmail.com">mohamed005cheikh@gmail.com</a> · <b>MC88</b>
   </div>
 </footer>
 
-<!-- WhatsApp floating button. Number: +22230726475 -->
-<a class="whatsapp-btn" href="https://wa.me/22230726475" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <span class="whatsapp-tooltip">Chat with MC88</span>
+<a class="whatsapp-btn" href="https://wa.me/22230726475" target="_blank" rel="noopener" aria-label="Contact on WhatsApp">
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
@@ -728,234 +473,169 @@ body, .store-header, .search-input, .sort-select, .chip, .app-card,
 (function(){
 'use strict';
 
-/* ============================================================
-   CONFIG
-   Point this at the repo where my builds land.
-   Every GitHub Release in that repo becomes a card here.
-   ============================================================ */
-const CONFIG = {
-  owner: 'MC-MC88',
-  repo:  'STORE88'
-};
+// where the releases live
+const CONFIG = { owner: 'MC-MC88', repo: 'STORE88' };
 
-/* ============================================================
-   THEMES
-   Eight palettes. Each one comes from a photo I liked.
-   Names are the mood, not the picture.
-   ============================================================ */
+// three plain themes
 const THEMES = [
-  { id:'souk',     name:'Souk'     },
-  { id:'aegean',   name:'Aegean'   },
-  { id:'wave',     name:'Wave'     },
-  { id:'sakura',   name:'Sakura'   },
-  { id:'terminal', name:'Terminal' },
-  { id:'escape',   name:'Escape'   },
-  { id:'pixel',    name:'Pixel'    },
-  { id:'dusk',     name:'Dusk'     }
+  { id:'dark',  name:'Dark',  bg:'#0c0c0e' },
+  { id:'paper', name:'Paper', bg:'#f6f4ef' },
+  { id:'sepia', name:'Sepia', bg:'#f1e8d5' }
 ];
 
-const THEME_BG = {
-  souk:     '#1a0d05',
-  aegean:   '#0a0508',
-  wave:     '#000000',
-  sakura:   '#1a0408',
-  terminal: '#000000',
-  escape:   '#000000',
-  pixel:    '#050a15',
-  dusk:     '#0a1428'
-};
-
 const themeMeta = document.getElementById('themeMeta');
-const themeBtn  = document.getElementById('themeBtn');
 const themeName = document.getElementById('themeName');
+let themeIndex = 0;
 
-let currentIndex = 0;
-
-function applyTheme(index){
-  if (index < 0) index = THEMES.length - 1;
-  if (index >= THEMES.length) index = 0;
-  currentIndex = index;
-  const t = THEMES[index];
+function applyTheme(i){
+  if (i < 0) i = THEMES.length - 1;
+  if (i >= THEMES.length) i = 0;
+  themeIndex = i;
+  const t = THEMES[i];
   document.documentElement.dataset.theme = t.id;
-  themeMeta.setAttribute('content', THEME_BG[t.id] || '#000000');
+  themeMeta.setAttribute('content', t.bg);
   themeName.textContent = t.name;
   try { localStorage.setItem('mc88store.theme', t.id); } catch(e){}
 }
 
 try {
   const saved = localStorage.getItem('mc88store.theme');
-  const idx = THEMES.findIndex(t => t.id === saved);
-  applyTheme(idx >= 0 ? idx : 0);
+  const i = THEMES.findIndex(t => t.id === saved);
+  applyTheme(i >= 0 ? i : 0);
 } catch(e){ applyTheme(0); }
 
-themeBtn.addEventListener('click', () => {
-  applyTheme(currentIndex + 1);
-});
+document.getElementById('themeBtn').addEventListener('click', () => applyTheme(themeIndex + 1));
 
-/* ============================================================
-   DOM
-   ============================================================ */
-const grid          = document.getElementById('appGrid');
-const featuredWrap  = document.getElementById('featuredWrap');
-const categoriesEl  = document.getElementById('categories');
-const searchInput   = document.getElementById('searchInput');
-const sortSelect    = document.getElementById('sortSelect');
-const statApps      = document.getElementById('statApps');
-const statDownloads = document.getElementById('statDownloads');
+// dom
+const grid = document.getElementById('appGrid');
+const featuredWrap = document.getElementById('featuredWrap');
+const categoriesEl = document.getElementById('categories');
+const searchInput = document.getElementById('searchInput');
+const sortSelect = document.getElementById('sortSelect');
+const statApps = document.getElementById('statApps');
 
-/* ============================================================
-   STATE
-   ============================================================ */
+// state
 let allApps = [];
 let activeCategory = 'all';
 
-/* ============================================================
-   HELPERS
-   ============================================================ */
-function hashColor(str){
+// fallback colors for icon letter — 8 muted tones
+const ICON_COLORS = ['#b45309','#0369a1','#166534','#7c2d12','#6d28d9','#9d174d','#0f766e','#854d0e'];
+
+function colorFor(name){
   let h = 0;
-  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) | 0;
-  const hue1 = Math.abs(h) % 360;
-  const hue2 = (hue1 + 60 + Math.abs(h >> 8) % 120) % 360;
-  return `linear-gradient(135deg, hsl(${hue1} 80% 55%), hsl(${hue2} 80% 45%))`;
+  for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) | 0;
+  return ICON_COLORS[Math.abs(h) % ICON_COLORS.length];
 }
 
-function shortName(name){
-  const cleaned = String(name).replace(/[^\w\s-]/g, '').trim();
-  const words = cleaned.split(/\s+/).filter(Boolean);
+function initialsFor(name){
+  const words = String(name).replace(/[^\w\s-]/g,'').trim().split(/\s+/).filter(Boolean);
   if (!words.length) return '?';
-  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  if (words.length === 1) return words[0].slice(0,2).toUpperCase();
   return (words[0][0] + words[1][0]).toUpperCase();
 }
 
-function formatSize(bytes){
-  if (!bytes) return '-';
-  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(0) + ' KB';
-  return (bytes / 1024 / 1024).toFixed(1) + ' MB';
-}
-
-function formatCount(n){
-  n = Number(n) || 0;
-  if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
-  if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
-  return String(n);
+function formatSize(b){
+  if (!b) return '—';
+  if (b < 1024*1024) return (b/1024).toFixed(0) + ' KB';
+  return (b/1024/1024).toFixed(1) + ' MB';
 }
 
 function formatDate(iso){
-  try {
-    return new Date(iso).toLocaleDateString(undefined, {
-      year: 'numeric', month: 'short', day: 'numeric'
-    });
-  } catch(e){ return ''; }
+  try { return new Date(iso).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}); }
+  catch(e){ return ''; }
 }
 
-function escapeHtml(s){
-  return String(s).replace(/[&<>"']/g, c => ({
-    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-  }[c]));
+function esc(s){
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
-/* ============================================================
-   TAGS + FEATURED FLAG
-   I write either "Tags: games, tools" or just "#games #tools"
-   in the release body. Both work.
-   ============================================================ */
+// pull tags from the release body — supports "tags: a, b" and "#a #b"
 function parseTags(body){
   if (!body) return [];
   const tags = new Set();
-
-  const lineMatch = body.match(/^\s*tags?\s*:\s*(.+)$/im);
-  if (lineMatch){
-    lineMatch[1].split(/[,\s]+/).forEach(t => {
-      const clean = t.trim().toLowerCase().replace(/^#/, '');
-      if (clean && /^[a-z0-9_-]{2,}$/.test(clean)) tags.add(clean);
-    });
-  }
-
+  const line = body.match(/^\s*tags?\s*:\s*(.+)$/im);
+  if (line) line[1].split(/[,\s]+/).forEach(t => {
+    const c = t.trim().toLowerCase().replace(/^#/,'');
+    if (c && /^[a-z0-9_-]{2,}$/.test(c)) tags.add(c);
+  });
   const re = /#([a-z0-9_-]{2,})/gi;
   let m;
   while ((m = re.exec(body)) !== null) tags.add(m[1].toLowerCase());
-
   return Array.from(tags);
 }
 
+// featured flag — "featured: true" or #featured / #pin / #pinned
 function isFeatured(body, tags){
   if (tags.includes('featured') || tags.includes('pin') || tags.includes('pinned')) return true;
   if (body && /(?:^|\n)\s*featured\s*:\s*true\b/i.test(body)) return true;
   return false;
 }
 
+// first non-tag, non-featured line is the description
 function cleanDescription(body){
   if (!body) return '';
-  const lines = body.split('\n')
-    .map(l => l.trim())
-    .filter(l => l &&
-      !l.startsWith('#') &&
-      !/^tags?\s*:/i.test(l) &&
-      !/^featured\s*:/i.test(l));
-  const first = lines[0] || '';
-  return first.replace(/^[-*]\s*/, '');
+  const line = body.split('\n').map(l => l.trim()).find(l =>
+    l && !l.startsWith('#') && !/^tags?\s*:/i.test(l) && !/^featured\s*:/i.test(l)
+  ) || '';
+  return line.replace(/^[-*]\s*/, '');
 }
 
-/* ============================================================
-   TURN A GITHUB RELEASE INTO AN APP OBJECT
-   ============================================================ */
+// turn one github release into an app
 function parseRelease(rel){
   const assets = Array.isArray(rel.assets) ? rel.assets : [];
-  const apkAssets = assets.filter(a => a.name && a.name.toLowerCase().endsWith('.apk'));
-  if (!apkAssets.length) return null;
+  const apks = assets.filter(a => a.name && a.name.toLowerCase().endsWith('.apk'));
+  if (!apks.length) return null;
 
-  const mainApk = apkAssets[0];
-  const totalSize = apkAssets.reduce((s, a) => s + (a.size || 0), 0);
-  const totalDownloads = apkAssets.reduce((s, a) => s + (a.download_count || 0), 0);
+  const main = apks[0];
+  const totalSize = apks.reduce((s,a) => s + (a.size||0), 0);
 
-  const rawName = (rel.name || rel.tag_name || 'Untitled').trim();
-  const name = rawName.replace(/^build[-\s]?/i, '').replace(/^v/i, '') || rawName;
+  // icon: look for icon.png / app-icon.png / logo.png asset, or "icon: URL" in body
+  const iconAsset = assets.find(a => a.name && /^(icon|app-?icon|logo)\.(png|webp|jpg|jpeg)$/i.test(a.name));
+  let iconUrl = null;
+  if (rel.body){
+    const m = rel.body.match(/^\s*icon\s*:\s*(\S+)/im);
+    if (m) iconUrl = m[1];
+  }
+  if (!iconUrl && iconAsset) iconUrl = iconAsset.browser_download_url;
 
+  const raw = (rel.name || rel.tag_name || 'Untitled').trim();
+  const name = raw.replace(/^build[-\s]?/i,'').replace(/^v/i,'') || raw;
   const tags = parseTags(rel.body);
-  const featured = isFeatured(rel.body, tags);
-  const description = cleanDescription(rel.body) || 'Tap download to install the latest version.';
 
   return {
-    name, description,
-    tagName: rel.tag_name,
+    name,
+    description: cleanDescription(rel.body) || 'Tap download to install the latest version.',
     version: rel.tag_name,
-    tags, featured,
+    tagName: rel.tag_name,
+    tags,
+    featured: isFeatured(rel.body, tags),
     size: totalSize,
     sizeLabel: formatSize(totalSize),
-    downloads: totalDownloads,
-    downloadsLabel: formatCount(totalDownloads),
     date: rel.published_at,
     dateLabel: formatDate(rel.published_at),
-    downloadUrl: mainApk.browser_download_url,
-    fileName: mainApk.name,
-    initials: shortName(name),
-    gradient: hashColor(name)
+    downloadUrl: main.browser_download_url,
+    fileName: main.name,
+    iconUrl,
+    initials: initialsFor(name),
+    color: colorFor(name)
   };
 }
 
-/* ============================================================
-   LOAD
-   Try releases.json first (kept fresh by the GitHub Action).
-   Fall back to the GitHub API if it's missing.
-   ============================================================ */
 async function loadApps(){
-  grid.innerHTML = `
-    <div class="skeleton"></div><div class="skeleton"></div>
-    <div class="skeleton"></div><div class="skeleton"></div>
-    <div class="skeleton"></div><div class="skeleton"></div>`;
+  grid.innerHTML = Array(6).fill('<div class="skeleton"></div>').join('');
 
   let releases = null;
-  let source = 'api';
 
+  // try the local cache first
   try {
     const res = await fetch('releases.json?t=' + Date.now());
     if (res.ok){
       const data = await res.json();
-      if (Array.isArray(data)){ releases = data; source = 'json'; }
+      if (Array.isArray(data)) releases = data;
     }
-  } catch(e){ /* silent, fall through */ }
+  } catch(e){}
 
+  // fall back to the github api
   if (!releases){
     try {
       const res = await fetch(
@@ -978,73 +658,62 @@ async function loadApps(){
   allApps = releases.map(parseRelease).filter(Boolean);
   if (!allApps.length){ showEmpty(); return; }
 
-  updateStats();
+  statApps.textContent = allApps.length;
   renderCategories();
   renderFeatured();
   applyFilters();
-  console.log('[MC88 STORE] Loaded', allApps.length, 'apps from', source);
 }
 
-function updateStats(){
-  statApps.textContent = allApps.length;
-  const total = allApps.reduce((s, a) => s + a.downloads, 0);
-  statDownloads.textContent = formatCount(total);
-}
-
-/* ============================================================
-   FEATURED
-   ============================================================ */
 function renderFeatured(){
-  const featured = allApps.find(a => a.featured);
-  if (!featured){ featuredWrap.classList.add('hidden'); return; }
+  const app = allApps.find(a => a.featured);
+  if (!app){ featuredWrap.classList.add('hidden'); return; }
   featuredWrap.classList.remove('hidden');
+
+  const iconHtml = app.iconUrl
+    ? `<div class="featured-icon"><img src="${esc(app.iconUrl)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='${esc(app.initials)}';this.parentElement.style.background='${app.color}'"></div>`
+    : `<div class="featured-icon" style="background:${app.color}">${esc(app.initials)}</div>`;
+
   featuredWrap.innerHTML = `
     <article class="featured-card">
-      <div class="featured-badge">Featured</div>
-      <div class="featured-icon" style="background:${featured.gradient}">
-        ${escapeHtml(featured.initials)}
-      </div>
+      ${iconHtml}
       <div class="featured-content">
-        <h2>${escapeHtml(featured.name)}</h2>
-        <div class="app-version">${escapeHtml(featured.version)}</div>
-        <p class="featured-desc">${escapeHtml(featured.description)}</p>
+        <div class="featured-badge">Featured</div>
+        <h2>${esc(app.name)}</h2>
+        <div class="featured-meta">${esc(app.version)} · ${esc(app.sizeLabel)}</div>
+        <p class="featured-desc">${esc(app.description)}</p>
         <div class="featured-info">
-          <span><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>${escapeHtml(featured.sizeLabel)}</span>
-          <span><svg viewBox="0 0 24 24"><path d="M12 21s-8-6-8-12a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6-8 12-8 12z"/></svg>${escapeHtml(featured.downloadsLabel)} downloads</span>
-          <span><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>${escapeHtml(featured.dateLabel)}</span>
-        </div>
-        <div class="featured-cta">
-          <a class="download-btn" href="${escapeHtml(featured.downloadUrl)}" download="${escapeHtml(featured.fileName)}" rel="noopener">
+          <span>
             <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download APK
-          </a>
+            ${esc(app.sizeLabel)}
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            ${esc(app.dateLabel)}
+          </span>
         </div>
       </div>
+      <a class="download-btn" href="${esc(app.downloadUrl)}" download="${esc(app.fileName)}" rel="noopener" style="width:auto;padding:12px 22px">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download
+      </a>
     </article>`;
 }
 
-/* ============================================================
-   CATEGORIES
-   ============================================================ */
 function renderCategories(){
   const counts = new Map();
-  allApps.forEach(a => {
-    a.tags.forEach(t => {
-      if (t === 'featured' || t === 'pin' || t === 'pinned') return;
-      counts.set(t, (counts.get(t) || 0) + 1);
-    });
-  });
+  allApps.forEach(a => a.tags.forEach(t => {
+    if (['featured','pin','pinned'].includes(t)) return;
+    counts.set(t, (counts.get(t) || 0) + 1);
+  }));
 
-  if (counts.size === 0){ categoriesEl.classList.add('hidden'); return; }
+  if (!counts.size){ categoriesEl.classList.add('hidden'); return; }
 
-  const sorted = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
-  const total = allApps.length;
-
+  const sorted = Array.from(counts.entries()).sort((a,b) => b[1] - a[1]);
   categoriesEl.classList.remove('hidden');
   categoriesEl.innerHTML =
-    `<button class="chip active" data-cat="all">All <span class="count">${total}</span></button>` +
-    sorted.map(([tag, n]) =>
-      `<button class="chip" data-cat="${escapeHtml(tag)}">${escapeHtml(tag)} <span class="count">${n}</span></button>`
+    `<button class="chip active" data-cat="all">All <span class="count">${allApps.length}</span></button>` +
+    sorted.map(([tag,n]) =>
+      `<button class="chip" data-cat="${esc(tag)}">${esc(tag)} <span class="count">${n}</span></button>`
     ).join('');
 
   categoriesEl.querySelectorAll('.chip').forEach(chip => {
@@ -1057,35 +726,23 @@ function renderCategories(){
   });
 }
 
-/* ============================================================
-   FILTER + SORT + RENDER
-   ============================================================ */
 function applyFilters(){
   const q = searchInput.value.trim().toLowerCase();
   const mode = sortSelect.value;
-
   let list = allApps.slice();
 
-  if (activeCategory !== 'all'){
-    list = list.filter(a => a.tags.includes(activeCategory));
-  }
-
-  if (q){
-    list = list.filter(a =>
-      a.name.toLowerCase().includes(q) ||
-      a.description.toLowerCase().includes(q) ||
-      (a.tagName && a.tagName.toLowerCase().includes(q)) ||
-      a.tags.some(t => t.includes(q))
-    );
-  }
+  if (activeCategory !== 'all') list = list.filter(a => a.tags.includes(activeCategory));
+  if (q) list = list.filter(a =>
+    a.name.toLowerCase().includes(q) ||
+    a.description.toLowerCase().includes(q) ||
+    a.tags.some(t => t.includes(q))
+  );
 
   switch (mode){
-    case 'oldest':    list.sort((a, b) => new Date(a.date) - new Date(b.date)); break;
-    case 'name':      list.sort((a, b) => a.name.localeCompare(b.name)); break;
-    case 'size':      list.sort((a, b) => (b.size || 0) - (a.size || 0)); break;
-    case 'downloads': list.sort((a, b) => (b.downloads || 0) - (a.downloads || 0)); break;
-    case 'newest':
-    default:          list.sort((a, b) => new Date(b.date) - new Date(a.date));
+    case 'oldest': list.sort((a,b) => new Date(a.date) - new Date(b.date)); break;
+    case 'name':   list.sort((a,b) => a.name.localeCompare(b.name)); break;
+    case 'size':   list.sort((a,b) => (b.size||0) - (a.size||0)); break;
+    default:       list.sort((a,b) => new Date(b.date) - new Date(a.date));
   }
 
   renderGrid(list);
@@ -1099,46 +756,42 @@ function renderGrid(apps){
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         </div>
         <h3>No matches</h3>
-        <p>Try a different search or clear the category filter.</p>
+        <p>Try a different search term, or clear the category filter.</p>
       </div>`;
     return;
   }
 
-  grid.innerHTML = apps.map((app, i) => `
-    <article class="app-card" style="--delay:${Math.min(i * 40, 600)}ms">
-      <div class="card-head">
-        <div class="app-icon" style="background:${app.gradient}">${escapeHtml(app.initials)}</div>
-        <div class="app-meta">
-          <div class="app-name">${escapeHtml(app.name)}</div>
-          <div class="app-version">${escapeHtml(app.version)}</div>
-        </div>
-      </div>
-      <p class="card-desc">${escapeHtml(app.description)}</p>
-      <div class="card-tags">
-        ${app.tags
-          .filter(t => !['featured','pin','pinned'].includes(t))
-          .slice(0, 4)
-          .map(t => `<span class="card-tag" data-cat="${escapeHtml(t)}">${escapeHtml(t)}</span>`)
-          .join('')}
-      </div>
-      <div class="card-info">
-        <span><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>${escapeHtml(app.sizeLabel)}</span>
-        <span><svg viewBox="0 0 24 24"><path d="M12 21s-8-6-8-12a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6-8 12-8 12z"/></svg>${escapeHtml(app.downloadsLabel)}</span>
-      </div>
-      <a class="download-btn" href="${escapeHtml(app.downloadUrl)}" download="${escapeHtml(app.fileName)}" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download APK
-      </a>
-    </article>
-  `).join('');
+  grid.innerHTML = apps.map(app => {
+    const iconHtml = app.iconUrl
+      ? `<div class="app-icon"><img src="${esc(app.iconUrl)}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='${esc(app.initials)}';this.parentElement.style.background='${app.color}'"></div>`
+      : `<div class="app-icon" style="background:${app.color}">${esc(app.initials)}</div>`;
 
-  grid.querySelectorAll('.card-tag').forEach(tag => {
-    tag.addEventListener('click', () => {
-      const cat = tag.dataset.cat;
-      const chip = categoriesEl.querySelector(`.chip[data-cat="${cat}"]`);
-      if (chip) chip.click();
-    });
-  });
+    return `
+      <article class="app-card">
+        <div class="card-head">
+          ${iconHtml}
+          <div class="app-meta">
+            <div class="app-name">${esc(app.name)}</div>
+            <div class="app-version">${esc(app.version)}</div>
+          </div>
+        </div>
+        <p class="card-desc">${esc(app.description)}</p>
+        <div class="card-info">
+          <span>
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            ${esc(app.sizeLabel)}
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            ${esc(app.dateLabel)}
+          </span>
+        </div>
+        <a class="download-btn" href="${esc(app.downloadUrl)}" download="${esc(app.fileName)}" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download APK
+        </a>
+      </article>`;
+  }).join('');
 }
 
 function showEmpty(){
@@ -1148,23 +801,22 @@ function showEmpty(){
         <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
       </div>
       <h3>No apps yet</h3>
-      <p>The store is warming up. Check back soon, or publish your first release on GitHub.</p>
+      <p>The store is warming up. Check back soon.</p>
     </div>`;
   statApps.textContent = '0';
-  statDownloads.textContent = '0';
   featuredWrap.classList.add('hidden');
   categoriesEl.classList.add('hidden');
 }
 
 function showError(code){
-  const isRate = code === 'RATE_LIMIT';
+  const rate = code === 'RATE_LIMIT';
   grid.innerHTML = `
     <div class="state">
       <div class="state-icon">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       </div>
-      <h3>${isRate ? 'Too many requests' : 'Could not load apps'}</h3>
-      <p>${isRate ? 'GitHub API rate limit reached. Please wait a minute and reload.' : 'Check your connection or try again in a moment.'}</p>
+      <h3>${rate ? 'Too many requests' : 'Could not load apps'}</h3>
+      <p>${rate ? 'GitHub API rate limit reached. Wait a moment and reload.' : 'Check your connection and try again.'}</p>
     </div>`;
   featuredWrap.classList.add('hidden');
   categoriesEl.classList.add('hidden');
@@ -1173,9 +825,6 @@ function showError(code){
 searchInput.addEventListener('input', applyFilters);
 sortSelect.addEventListener('change', applyFilters);
 
-/* ============================================================
-   BOOT
-   ============================================================ */
 loadApps();
 
 })();
